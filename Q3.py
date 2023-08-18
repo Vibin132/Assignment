@@ -19,10 +19,14 @@ def main():
     plt.title("Histogram of normal distribution")
     st.pyplot(fig)
 
+# Convert data to a Pandas DataFrame
+    data_df = pd.DataFrame(data, columns=["Value"])
+
     # Download the data as a .csv file
+    csv = data_df.to_csv(index=False)
     st.download_button(
         label="Download data as .csv file",
-        data=data.to_csv(index=False),
+        data=csv,
         file_name="normal_distribution.csv",
     )
 
